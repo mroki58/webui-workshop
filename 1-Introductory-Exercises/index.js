@@ -6,7 +6,7 @@ const wsLogger = LogManager.getLogger('frontend/ws')
 const http = new HttpServer({
     port: 8080
 }, {
-    expiresIn: '30s'
+    expiration: '30s'
 })
 
 http.addStaticPath('./public')
