@@ -1,4 +1,4 @@
-import {Observable, QueryRouter, Loader, sessionService} from '/js/src/index.js';
+import {Observable, QueryRouter, Loader, sessionService, WebSocketClient} from '/js/src/index.js';
 import Home from './home/Home.js'
 import About from './about/About.js';
 
@@ -24,11 +24,31 @@ export default class Model extends Observable {
     this.router.observe(this.handleLocationChange.bind(this));
     this.router.bubbleTo(this);
 
-    this.homeModel = new Home()
-    this.aboutModel = new About()
+    // models
+    this.homeModel = new Home(this.loader)
+    this.aboutModel = new About(this.loader)
 
     this.homeModel.bubbleTo(this)
     this.aboutModel.bubbleTo(this)
+
+    // ws client
+    this.randomNumber = 10
+    this.ws = new WebSocketClient()
+
+    this.ws.addListener('authed', () => {
+      this.ws.sendMessage({command: 'random'});
+    })
+
+    this.ws.addListener('random-res', (message) => {
+      if(message.command == 'random-res')
+      {
+        console.log( this.randomNumber)
+        this.notify()
+        this.ws.sendMessage({
+          command: 'random'
+        })
+      }
+    }) 
 
     this.handleLocationChange(); // Init first page
   }
@@ -47,4 +67,5 @@ export default class Model extends Observable {
         break;
     }
   }
+
 }

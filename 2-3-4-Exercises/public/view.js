@@ -9,7 +9,8 @@ import homeContent from './home/homePage.js'
 export default (model) => [
   h('.flex-column.absolute-fill', [
     header(model),
-    content(model)
+    content(model),
+    randomNumber(model)
   ])
 ];
 
@@ -40,5 +41,9 @@ const content = (model) => {
     'about': aboutContent
   })(model)
 } 
+
+const randomNumber = (model) => {
+  return h('.number', model.randomNumber)
+}
  
 
