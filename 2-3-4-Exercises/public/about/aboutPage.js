@@ -5,10 +5,10 @@ import {iconHome, iconList} from '/js/src/icons.js'
 const tableContent = (model) => {
     let i = 0;
 
-    return Object.keys(model.object).map((value) => {
+    return Object.keys(model.aboutModel.object).map((value) => {
         return h('tr', [
             h('td', i++),
-            h('td', model.object[value])
+            h('td', model.aboutModel.object[value])
         ])
     })
 } 
@@ -32,7 +32,7 @@ export default (model) => {
         h('button', { class: 'btn btn-danger',
             onclick: () => {
                 console.log('Request data about application')
-                model.getDetails()
+                model.aboutModel.getDetails()
             },
         }, iconList() ),
         table(model)

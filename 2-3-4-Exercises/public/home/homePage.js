@@ -3,7 +3,7 @@ import {info, iconPerson} from '/js/src/icons.js'
 
 
 const label = (model) => {
-  return h('p', {class: 'bg-success text-center'}, model.getUserName())
+  return h('p', {class: 'bg-success text-center'}, model.homeModel.getUserName())
 }
 
 export default (model) => {
@@ -21,7 +21,7 @@ export default (model) => {
           h('button', {class: 'btn btn-danger',
             onclick: () => {
                 console.log('Gets username')
-                model.setUserName()
+                model.homeModel.setUserName()
             }
 
           }, [

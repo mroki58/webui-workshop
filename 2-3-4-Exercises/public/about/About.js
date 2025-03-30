@@ -1,6 +1,6 @@
-import Home from '../home/Home.js'
+import {Observable} from '/js/src/index.js'
 
-export default class About extends Home {
+export default class About extends Observable {
     constructor()
     {
         super()
