@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - main 
-    paths:
-      - '2-3-4/Exercises/**' 
 
 jobs:
   test-macos:
