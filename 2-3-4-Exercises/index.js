@@ -1,5 +1,6 @@
 const path = require('path');
 const config = require('./config.js');
+const applicationService = require('./lib/applicationService.js')
 
 
 const {HttpServer} = require('@aliceo2/web-ui');
@@ -10,11 +11,9 @@ const http = new HttpServer(config.http, config.jwt, config.oAuth);
 http.addStaticPath(path.join(__dirname, 'public'));
 
 http.get('/info', (req, res) => {
-    res.json({
-        name: "App",
-        author: "Igor",
-        version: "1.0.0"
-    })
+    res.json(
+       applicationService.getInfo()
+    )
 }, {
     //public: true,
 })

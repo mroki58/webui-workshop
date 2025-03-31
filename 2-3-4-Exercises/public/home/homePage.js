@@ -8,7 +8,7 @@ const label = (model) => {
 
 export default (model) => {
     return h('.content' , 
-        [ h('h1', {class: 'title'}, 'hello home'),
+        [ h('h1', {class: 'title'}, 'hello home!'),
           h('button', {class: 'btn btn-primary' , 
             onclick: () => {
                 console.log("Takes user to about page")

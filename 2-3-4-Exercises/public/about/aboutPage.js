@@ -26,7 +26,7 @@ const table = (model) => {
 export default (model) => {
     return h('.content' , [
         label(model),
-        h('h1', {class: ''}, 'hello about!'),
+        h('h1', {class: 'title'}, 'hello about!'),
         h('button', {class: 'btn btn-primary', 
             onclick: () => {
                 console.log('Takes user to home page')
