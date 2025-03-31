@@ -12,9 +12,13 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Checkout repository
+        uses: actions/checkout@v4  # Pobiera kod repozytorium
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.x'
+          node-version: '22.x'  # Ustawia wersję Node.js
+
       - name: Install dependencies
         run: |
           cd 2-3-4-Exercises
@@ -30,9 +34,13 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout repository
+        uses: actions/checkout@v4  # Pobiera kod repozytorium
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
-        with: 
-          node-version: '22.x'
+        with:
+          node-version: '22.x'  # Ustawia wersję Node.js
+
       - name: Install dependencies
         run: |
           cd 2-3-4-Exercises
