@@ -5,7 +5,9 @@ name: Run Tests on Multiple OS
 on:
   push:
     branches:
-      - main  
+      - main 
+    paths:
+      - '2-3-4/Exercises/**' 
 
 jobs:
   test-macos:
@@ -15,6 +17,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22.x'
+      - name: Go to 2-3-4 ex
+        run: cd 2-3-4-Exercises
       - name: Install dependencies
         run: npm ci  
       - name: Run tests
@@ -27,6 +31,8 @@ jobs:
         uses: actions/setup-node@v4
         with: 
           node-version: '22.x'
+      - name: Go to 2-3-4 ex
+        run: cd 2-3-4-Exercises
       - name: Install dependencies
         run: npm ci  
       - name: Run tests

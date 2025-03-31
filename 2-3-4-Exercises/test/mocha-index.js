@@ -15,7 +15,7 @@ before(async function () {
     page = await browser.newPage();
 });
 
-after(async function () {
+after(async function () { 
     await browser.close();
     server.kill(); // Zatrzymanie serwera po testach
 });
