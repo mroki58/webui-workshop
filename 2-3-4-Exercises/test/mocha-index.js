@@ -20,7 +20,7 @@ after(async function () {
     server.kill(); // Zatrzymanie serwera po testach
 });
 
-describe('Application Connection Test', function () {
+describe('Application Connection Test', function () { 
     it('should connect successfully to the application', async function () {
         this.timeout(5000);
         
