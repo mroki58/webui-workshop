@@ -36,16 +36,17 @@ export default class Model extends Observable {
     this.ws = new WebSocketClient()
 
     this.ws.addListener('authed', () => {
-      this.ws.sendMessage({command: 'random'});
+      this.ws.sendMessage({command: 'random', payload: {data: 0}});
     })
 
-    this.ws.addListener('random-res', (message) => {
+    this.ws.addListener('command', (message) => {
       if(message.command == 'random-res')
       {
         console.log( this.randomNumber)
         this.notify()
         this.ws.sendMessage({
-          command: 'random'
+          command: 'random',
+          payload: {data: 0}
         })
       }
     }) 

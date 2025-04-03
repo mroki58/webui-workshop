@@ -27,5 +27,5 @@ function timeout(ms) {
 
 ws.bind('random', async (req, res) => {
     // await timeout(5000)
-    return new WebSocketMessage().setCommand('random-res').setPayload(Math.floor(Math.random() * 9 + 1))
+    return new WebSocketMessage().setCommand('random-res').setPayload({data: Math.floor(Math.random() * 9 + 1)})
 })
