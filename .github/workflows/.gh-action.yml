@@ -1,7 +1,5 @@
 name: Run Tests on Multiple OS
 
-
-
 on:
   push:
     branches:
@@ -23,10 +21,8 @@ jobs:
         run: |
           cd 2-3-4-Exercises
           npm ci
-          npm run test
       - name: Run tests
         run: | 
-          cd 2-3-4-Exercises
           npm run test  
         working-directory: 2-3-4-Exercises
 
@@ -45,7 +41,6 @@ jobs:
         run: |
           cd 2-3-4-Exercises
           npm ci
-          npm run test
       - name: Run tests
         run: | 
           cd 2-3-4-Exercises
